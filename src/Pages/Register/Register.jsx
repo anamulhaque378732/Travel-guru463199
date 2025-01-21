@@ -1,15 +1,39 @@
 import { Link } from "react-router";
 import Navbar from "../../Components/Navbar/Navbar";
 import { FaFacebookSquare, FaGoogle } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { AuthContaxt } from "../../AuthContext/AuthProvider";
+
 const Register = () => {
+  const { registerUser } = useContext(AuthContaxt);
+
+  const [success, setSuccess] = useState("");
+
   const handleRegister = (e) => {
     e.preventDefault();
+
+    const form = new FormData(e.currentTarget);
+    const firstName = form.get("firstName");
+    const lastName = form.get("lastName");
+    const email = form.get("email");
+    const password = form.get("password");
+    const confirmPassword = form.get("confirmPassword");
+    // console.log(firstName, lastName, email, password, confirmPassword);
+
+    registerUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        user && setSuccess("create your account successfully");
+      })
+      .catch((error) => {
+        error && setSuccess(error.message);
+      });
   };
 
   return (
     <div className="">
       <Navbar></Navbar>
-      <div className="border mx-auto  mt-2 mb-3 w-2/5 rounded-lg">
+      <div className="border mx-auto   mt-2 mb-3 w-2/5 rounded-lg">
         <form
           onSubmit={handleRegister}
           className="  lg:px-28    py-2  align-middle  mt-2  bg-white"
@@ -28,7 +52,7 @@ const Register = () => {
           <input
             name="lastName"
             type="text"
-            placeholder="Email"
+            placeholder="last name"
             className="input justify-center input-bordered w-full max-w-xs"
           />
 
@@ -54,7 +78,6 @@ const Register = () => {
           <input
             name="confirmPassword"
             type="password"
-            required
             placeholder="Password"
             className="input input-bordered mt-1 mb-2 w-full max-w-xs"
           />
@@ -63,6 +86,7 @@ const Register = () => {
             Register
           </button>
         </form>
+        <p className="text-xl text-center"> {success}</p>
         <div className="text-center mb-4 pt-4">
           <p>
             already have an account ? please login..
@@ -83,7 +107,6 @@ const Register = () => {
           </button>{" "}
           <br />
           <button className="text-xl w-1/2 btn btn-circle  font-medium text-center">
-            {" "}
             <FaGoogle></FaGoogle> Login with Google
           </button>
         </div>

@@ -1,4 +1,3 @@
-
 import { getAuth } from "firebase/auth";
 
 // Import the functions you need from the SDKs you need
@@ -8,10 +7,10 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.ApiKey,
+  apiKey: "AIzaSyDU4GSDJKW80TnHsK0xBSiRH0Py0Pu-SrA",
   authDomain: import.meta.env.AuthDomain,
   projectId: import.meta.env.ProjectId,
-  storageBucket:import.meta.env.StorageBucket,
+  storageBucket: import.meta.env.StorageBucket,
   messagingSenderId: import.meta.env.MessagingSenderId,
   appId: import.meta.env.AppId,
 };
