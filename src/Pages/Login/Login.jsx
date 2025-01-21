@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import Navbar from "../../Components/Navbar/Navbar";
-import { FaFacebookSquare , FaGoogle } from "react-icons/fa";
+import { FaFacebookSquare, FaGoogle } from "react-icons/fa";
 const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
@@ -36,6 +36,12 @@ const Login = () => {
             className="input input-bordered mt-1 mb-2 w-full max-w-xs"
           />
           <br />
+          <div className="my-2 flex justify-between">
+            <p>
+              <input type="checkbox" name="checkbox" /> Remanber Me
+            </p>
+            <button className=" btn-link">Forgotten Password</button>
+          </div>
           <button className=" btn bg-[#F9A51A] text-xl max-w-xs w-full">
             Login
           </button>
@@ -53,8 +59,16 @@ const Login = () => {
         </div>
 
         <div className="text-center">
-          <button className="text-xl mb-2  w-1/2 btn btn-circle font-medium text-center"> <FaFacebookSquare className="pt-1 text-2xl"></FaFacebookSquare> Login With Fecebook</button> <br />
-          <button className="text-xl w-1/2 btn btn-circle  font-medium text-center"> <FaGoogle></FaGoogle> Login with Google</button>
+          <button className="text-xl mb-2  w-1/2 btn btn-circle font-medium text-center">
+            {" "}
+            <FaFacebookSquare className="pt-1 text-2xl"></FaFacebookSquare>{" "}
+            Login With Fecebook
+          </button>{" "}
+          <br />
+          <button className="text-xl w-1/2 btn btn-circle  font-medium text-center">
+            {" "}
+            <FaGoogle></FaGoogle> Login with Google
+          </button>
         </div>
       </div>
     </div>

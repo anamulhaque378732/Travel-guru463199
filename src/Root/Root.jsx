@@ -1,12 +1,12 @@
 import { Outlet } from "react-router";
-import Navbar from "../Components/Navbar/Navbar";
+ 
  
  
 
 const Root = () => {
     return (
-        <div>
-           <Navbar></Navbar>
+        <div className="mx-8  ">
+          
           <Outlet></Outlet>
         </div>
     );
